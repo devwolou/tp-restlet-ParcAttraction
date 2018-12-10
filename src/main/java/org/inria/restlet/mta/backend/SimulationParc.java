@@ -81,4 +81,8 @@ public class SimulationParc {
     public Client[] getClients() {
         return clients;
     }
+
+    public Navette[] getNavettes() {
+        return navettes;
+    }
 }

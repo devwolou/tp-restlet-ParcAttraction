@@ -1,6 +1,7 @@
 package org.inria.restlet.mta.application;
 
 
+import org.inria.restlet.mta.resources.NavettesRessource;
 import org.inria.restlet.mta.resources.UsersResource;
 import org.restlet.Application;
 import org.restlet.Context;
@@ -29,8 +30,7 @@ public class MyParcApplication extends Application
         router.attach("/clients", UsersResource.class);
 
 
-        router.attach("/navettes", UsersResource.class);
-
+        router.attach("/navettes", NavettesRessource.class);
 
         return router;
 

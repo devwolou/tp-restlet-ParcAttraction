@@ -25,7 +25,12 @@ public class Attraction {
         System.out.println("Client: "+client.getNom()+" est dans la Navette");
         nombreDePlaceDispoNavette--;
 
-        client.setState("ENTERED");
+        if (client.getEtat()=="INIT"){
+            client.setState("ENTERED");
+        }else {
+            client.setState("TRANSIT");
+        }
+
 
         while (!arriveAttraction){
             System.out.println("Client: "+client.getNom()+" est en attente d'arrivée à une attraction");
