@@ -13,8 +13,8 @@ public class Navette extends Thread {
     public Navette(int num,Attraction attraction){
         this.etatNavette = "STOPPED";
         this.attraction = attraction;
-        this.dureeTrajet = 200;
-        this.dureeAttenteQuai = 200;
+        this.dureeTrajet = 2000;
+        this.dureeAttenteQuai = 1000;
         this.num = num;
 
     }

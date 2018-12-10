@@ -15,7 +15,7 @@ public class Client extends Thread{
         this.nbreDeBilletAAcheter = nbreDeBilletAAcheter;
         this.billeterie = billeterie;
         this.attraction = attraction;
-        this.dureeAttraction = 200;
+        this.dureeAttraction = 2000;
         this.num = num;
 
     }
