@@ -1,8 +1,5 @@
 package org.inria.restlet.mta.backend;
 
-import org.inria.restlet.mta.database.api.Database;
-import org.inria.restlet.mta.database.api.impl.InMemoryDatabase;
-
 /**
  *
  * Backend for all resources.
@@ -14,16 +11,15 @@ import org.inria.restlet.mta.database.api.impl.InMemoryDatabase;
 public class Backend
 {
     /** Database.*/
-    private Database database_;
+    private SimulationParc parc_;
 
     public Backend()
     {
-        database_ = new InMemoryDatabase();
+        parc_ = new SimulationParc();
+        parc_.fonctionner();
     }
 
-    public Database getDatabase()
-    {
-        return database_;
+    public SimulationParc getParc_() {
+        return parc_;
     }
-
 }

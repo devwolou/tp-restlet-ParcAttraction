@@ -1,8 +1,6 @@
 package org.inria.restlet.mta.application;
 
 
-import org.inria.restlet.mta.resources.TweetResource;
-import org.inria.restlet.mta.resources.UserResource;
 import org.inria.restlet.mta.resources.UsersResource;
 import org.restlet.Application;
 import org.restlet.Context;
@@ -16,10 +14,10 @@ import org.restlet.routing.Router;
  * @author msimonin
  *
  */
-public class MyTwitterApplication extends Application
+public class MyParcApplication extends Application
 {
 
-    public MyTwitterApplication(Context context)
+    public MyParcApplication(Context context)
     {
         super(context);
     }
@@ -28,9 +26,14 @@ public class MyTwitterApplication extends Application
     public Restlet createInboundRoot()
     {
         Router router = new Router(getContext());
-        router.attach("/users", UsersResource.class);
-        router.attach("/users/{userId}", UserResource.class);
-        router.attach("/users/{userId}/tweets", TweetResource.class);
+        router.attach("/clients", UsersResource.class);
+
+
+        router.attach("/navettes", UsersResource.class);
+
+
         return router;
+
+
     }
 }

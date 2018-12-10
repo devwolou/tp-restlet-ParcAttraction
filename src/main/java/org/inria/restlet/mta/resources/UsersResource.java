@@ -3,15 +3,15 @@ package org.inria.restlet.mta.resources;
 import java.util.ArrayList;
 import java.util.Collection;
 
+
 import org.inria.restlet.mta.backend.Backend;
-import org.inria.restlet.mta.internals.User;
+import org.inria.restlet.mta.backend.Client;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
-import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
 
 /**
@@ -48,15 +48,16 @@ public class UsersResource extends ServerResource
     @Get("json")
     public Representation getUsers() throws JSONException
     {
-        Collection<User> users = backend_.getDatabase().getUsers();
+        Client[] users = backend_.getParc_().getClients();
+
         Collection<JSONObject> jsonUsers = new ArrayList<JSONObject>();
 
-        for (User user : users)
+        for (int i=0; i< users.length; i++)
         {
             JSONObject current = new JSONObject();
-            current.put("id", user.getId());
-            current.put("name", user.getName());
-            current.put("url", getReference() + "/" + user.getId());
+            current.put("Client :", users[i].getName());
+            current.put("Etat :", users[i].getEtat());
+
             jsonUsers.add(current);
 
         }
@@ -64,7 +65,7 @@ public class UsersResource extends ServerResource
         return new JsonRepresentation(jsonArray);
     }
 
-    @Post("json")
+/*    @Post("json")
     public Representation createUser(JsonRepresentation representation)
         throws Exception
     {
@@ -83,5 +84,5 @@ public class UsersResource extends ServerResource
         JsonRepresentation result = new JsonRepresentation(resultObject);
         return result;
     }
-
+*/
 }
